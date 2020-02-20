@@ -16,4 +16,7 @@ const StyledText = styled.label`
   font-size: ${props => props.theme.text.fontSize};
   font-family: ${props => props.theme.text.fontFamily};
   color: ${props => props.theme.screenContrastColor};
+  /* TODO: make themeable */
+  font-weight: 400;
+  letter-spacing: 0.14px;
 `;
