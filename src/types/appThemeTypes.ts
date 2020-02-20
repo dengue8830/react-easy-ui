@@ -79,7 +79,6 @@ interface Text {
 }
 
 export interface Theme {
-  // theme: 'white' | 'dark',
   primaryColor: string;
   contrastPrimaryColor: string;
   dangerColor: string;
