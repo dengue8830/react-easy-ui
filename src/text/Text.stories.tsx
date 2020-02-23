@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from '../src/Text';
-import { ExampleThemedProvider } from './utils/exampleThemedProvider';
+import { Text } from './Text';
+import { ExampleThemedProvider } from '../utils';
 
 export default {
   title: 'Text'

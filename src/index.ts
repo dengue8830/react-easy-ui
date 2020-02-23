@@ -1,5 +1,6 @@
-export { Button } from './Button';
-export { Text } from './Text';
-export { Spinner } from './Spinner';
+export { Button } from './button';
+export { Text } from './text';
+export { Spinner } from './spinner';
 export { ThemeProvider } from './ThemeProvider';
-export { Input } from './Input';
+export { Input } from './input';
+//
