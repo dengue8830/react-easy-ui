@@ -1,8 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Button } from '../src/Button';
+import { Button, Spinner } from '../src/';
 import { ExampleThemedProvider } from './utils/exampleThemedProvider';
-import { Spinner } from '../src/Spinner';
 
 export default {
   title: 'Button'
