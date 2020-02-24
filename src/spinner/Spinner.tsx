@@ -26,6 +26,11 @@ export const Spinner = styled.div<Props>`
   border: ${props => props.borderWidth || 'calc(var(--spinnerSize)/6)'} solid
     rgba(151, 159, 208, 0.3);
   border-top-color: inherit;
+  /**
+   * BUG: When the spinner is inside an input container it becomes an oval.
+   * FIX: Use flex-shring because the width was affected by flex.
+   */
+  flex-shrink: 0;
   animation: 1s spin infinite linear;
   @keyframes spin {
     from {
