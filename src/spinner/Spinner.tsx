@@ -1,7 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-interface Props {}
+interface Props {
+  borderWidth?;
+}
 
 /**
  * Alternatives:
@@ -13,28 +15,34 @@ export function Spinner(props: Props) {
   return <ThemedSpinner {...props} />;
 }
 
-const ThemedSpinner = styled.div`
-  width: ${props => props.theme.text.fontSize};
-  height: ${props => props.theme.text.fontSize};
-  /* margin: ${props => props.theme.text.fontSize}; */
+Spinner.Container = styled.div`
+  width: 18px;
+  height: 18px;
+`;
+
+const ThemedSpinner = styled.div<Props>`
+  /* Using css vars we can avoid taking the unit (px,rem,etc) into account. */
+  --spinnerSize: ${props => props.theme.text.fontSize};
+  width: var(--spinnerSize);
+  height: var(--spinnerSize);
   border-radius: 50%;
-  border: 0.2rem solid rgba(151, 159, 208, 0.3);
+  /**
+   * Using rem unit produces the "white bite" bug.
+   * https://stackoverflow.com/questions/60368267/css-white-bite-and-oval-form-in-spinner
+   * Using calc we can make our spinner responsive to the size automagically.
+   * BUG: If the calc results in some specific decimal value, the circle looks weird, like no full circle.
+   * FIX: User should pass the correct value as props.
+   */
+  border: ${props => props.borderWidth || 'calc(var(--spinnerSize)/6)'} solid
+    rgba(151, 159, 208, 0.3);
   border-top-color: inherit;
-  -webkit-animation: 1s spin infinite linear;
   animation: 1s spin infinite linear;
-  /* .multi {
-    border-bottom-color: ${props => props.theme.screenContrastColor};
-  } */
-  @-webkit-keyframes spin {
-    to {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-    }
-  }
   @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
     to {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
+      transform: rotate(360deg);
     }
   }
 `;
