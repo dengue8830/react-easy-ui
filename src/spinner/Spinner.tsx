@@ -1,4 +1,3 @@
-import * as React from 'react';
 import styled from 'styled-components';
 
 interface Props {
@@ -11,16 +10,7 @@ interface Props {
  * https://codepen.io/msisto/pen/LntJe
  * https://codepen.io/noeldelgado/pen/Bkzlu
  */
-export function Spinner(props: Props) {
-  return <ThemedSpinner {...props} />;
-}
-
-Spinner.Container = styled.div`
-  width: 18px;
-  height: 18px;
-`;
-
-const ThemedSpinner = styled.div<Props>`
+export const Spinner = styled.div<Props>`
   /* Using css vars we can avoid taking the unit (px,rem,etc) into account. */
   --spinnerSize: ${props => props.theme.text.fontSize};
   width: var(--spinnerSize);
